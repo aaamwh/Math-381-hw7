@@ -33,7 +33,6 @@ textplot(model2$points[,1],model2$points[,2],
 s2 <- 1:16
 #plot eigen value
 plot(s2, model2[2]$eig, xlab = "", ylab = "Eigenvalue")
-text(s2, model2[2]$eig, labels = paste( y, ")"))
 #model distance matrix
 distanceM1 <- as.matrix(dist((apply(model1$points, MARGIN=c(1,2),myfun)), method="minkowski",p=2))
 distanceM2 <- as.matrix(dist((apply(model2$points, MARGIN=c(1,2),myfun)), method="minkowski",p=2))
@@ -50,7 +49,8 @@ max(abs(distanceM2-distanceM))
 sum(abs(distanceM3-distanceM))
 sum((distanceM3-distanceM)*(distanceM3-distanceM))
 max(abs(distanceM3-distanceM))
-plot(distanceM,distanceM1, xlab = "", ylab = "")
-plot(distanceM,distanceM2, xlab = "", ylab = "")
-plot(distanceM,distanceM3, xlab = "", ylab = "")
+plot(distanceM,distanceM1, xlab = "", ylab = "",xlim = c(0,7), ylim = c(0,7), xaxs = "i", yaxs = "i")
+abline(a=0, b=1)
+plot(distanceM,distanceM2, xlab = "", ylab = "",xlim = c(0,7), ylim = c(0,7), xaxs = "i", yaxs = "i")
+plot(distanceM,distanceM3, xlab = "", ylab = "",xlim = c(0,7), ylim = c(0,7), xaxs = "i", yaxs = "i")
 
